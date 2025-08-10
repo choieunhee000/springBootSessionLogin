@@ -17,7 +17,10 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeHttpRequests) ->
                         authorizeHttpRequests
-                                .requestMatchers("/**").hasRole("USER")
+                                .requestMatchers("/helloPage").hasAnyRole("USER","ADMIN")
+                                .requestMatchers("/userPage").hasRole("USER")
+                                .requestMatchers("/adminPage").hasRole("ADMIN")
+                                .requestMatchers("/publicPage/**").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .cors(Customizer.withDefaults()) //
