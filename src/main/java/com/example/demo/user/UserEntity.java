@@ -13,6 +13,7 @@ import java.util.List;
 @Table(name = "users")
 @Data
 public class UserEntity implements UserDetails {
+    // UserDetails - Spring Security가 이해할 수 있는 규격
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "user_name")
