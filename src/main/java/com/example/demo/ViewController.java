@@ -13,7 +13,7 @@ public class ViewController {
     private final UserService userService;
 
     @GetMapping("/public")
-    public String publicPage(Model model) {
+    public String publicPage() {
         return "public"; // templates/public.html을 찾아서 렌더링
     }
 
@@ -24,12 +24,12 @@ public class ViewController {
     }
 
     @GetMapping("/admin")
-    public String adminPage(Model model) {
+    public String adminPage() {
         return "admin"; // templates/admin.html을 찾아서 렌더링
     }
 
     @GetMapping("/user")
-    public String userPage(Model model) {
+    public String userPage() {
         return "user"; // templates/user.html을 찾아서 렌더링
     }
 }
