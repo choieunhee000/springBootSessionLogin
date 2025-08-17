@@ -29,10 +29,10 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorizeHttpRequests) ->
                         authorizeHttpRequests
-                                .requestMatchers("/helloPage").hasAnyRole("USER","ADMIN")
-                                .requestMatchers("/userPage").hasRole("USER")
-                                .requestMatchers("/adminPage").hasRole("ADMIN")
-                                .requestMatchers("/publicPage/**").permitAll()
+                                .requestMatchers("/hello").hasAnyRole("USER","ADMIN")
+                                .requestMatchers("/user").hasRole("USER")
+                                .requestMatchers("/admin").hasRole("ADMIN")
+                                .requestMatchers("/public").permitAll()
                 )
                 .formLogin(Customizer.withDefaults())
                 .cors(Customizer.withDefaults()) //

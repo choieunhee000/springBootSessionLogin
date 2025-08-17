@@ -1,28 +1,34 @@
 package com.example.demo;
 
+import com.example.demo.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class ViewController {
-    @GetMapping("/publicPage")
+
+    private final UserService userService;
+
+    @GetMapping("/public")
     public String publicPage(Model model) {
         return "public"; // templates/public.html을 찾아서 렌더링
     }
 
-    @GetMapping("/helloPage")
+    @GetMapping("/hello")
     public String helloPage(Model model) {
-        model.addAttribute("name", "eunhee");
+        model.addAttribute("name", userService.getCurrentUserName());
         return "hello"; // templates/hello.html을 찾아서 렌더링
     }
 
-    @GetMapping("/adminPage")
+    @GetMapping("/admin")
     public String adminPage(Model model) {
         return "admin"; // templates/admin.html을 찾아서 렌더링
     }
 
-    @GetMapping("/userPage")
+    @GetMapping("/user")
     public String userPage(Model model) {
         return "user"; // templates/user.html을 찾아서 렌더링
     }
